@@ -1,26 +1,96 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f7f7f7;
+    color: #333;
 }
 
 header {
-    background-color: #333;
+    background: linear-gradient(to right, #1f4037, #99f2c8);
     color: white;
-    padding: 10px 0;
+    padding: 50px 0;
     text-align: center;
 }
 
-h1 {
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #333;
+}
+
+.hero {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #ff6363;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ff4747;
 }
 
 main {
-    padding: 20px;
+    padding: 50px 20px;
 }
 
-.projects {
+.projects h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.project-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -29,31 +99,49 @@ main {
 .project {
     background-color: white;
     border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.project h2 {
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.project h3 {
     margin-top: 0;
 }
 
 .project p {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
-.project a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
+.btn-secondary {
+    background-color: #333;
     color: white;
-    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
 }
 
-.project a:hover {
-    background-color: #0056b3;
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+.about, .contact {
+    background-color: #f0f0f0;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about h2, .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 footer {
@@ -61,7 +149,4 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
