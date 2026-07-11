@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initTerminal() {
     const terminalOutput = document.getElementById('terminal-output');
+    terminalOutput.style.position = 'relative';
     const terminalTyped = document.getElementById('terminal-typed');
-    
+
     // Command data
     const commands = {
         help: `Available commands:<br>
@@ -67,7 +68,7 @@ function initTerminal() {
     // Typist helper
     let currentInput = "";
     let autoTypingActive = true;
-    
+
     // Inject hidden input to handle mobile & desktop keyboard capture smoothly
     const hiddenInput = document.createElement('input');
     hiddenInput.type = 'text';
@@ -75,14 +76,18 @@ function initTerminal() {
     hiddenInput.setAttribute('autocorrect', 'off');
     hiddenInput.setAttribute('autocapitalize', 'off');
     hiddenInput.setAttribute('spellcheck', 'false');
-    
+
     hiddenInput.style.position = 'absolute';
     hiddenInput.style.opacity = '0.01';
     hiddenInput.style.pointerEvents = 'none';
     hiddenInput.style.left = '0';
     hiddenInput.style.top = '0';
-    hiddenInput.style.width = '10px';
-    hiddenInput.style.height = '10px';
+    hiddenInput.style.width = '100%';
+    hiddenInput.style.height = '100%';
+    hiddenInput.style.border = 'none';
+    hiddenInput.style.outline = 'none';
+    hiddenInput.style.background = 'transparent';
+    hiddenInput.style.caretColor = 'transparent';
     hiddenInput.style.fontSize = '16px'; // Prevent page zoom on iOS
     terminalOutput.appendChild(hiddenInput);
 
@@ -112,9 +117,6 @@ function initTerminal() {
     // Handle focus visual state classes
     hiddenInput.addEventListener('focus', () => {
         terminalCard.classList.add('focused');
-        try {
-            hiddenInput.setSelectionRange(hiddenInput.value.length, hiddenInput.value.length);
-        } catch (err) {}
     });
     hiddenInput.addEventListener('blur', () => {
         terminalCard.classList.remove('focused');
@@ -123,7 +125,7 @@ function initTerminal() {
     // Capture global keystrokes and focus terminal automatically
     document.addEventListener('keydown', (e) => {
         if (autoTypingActive) return;
-        
+
         // Ignore if focus is in contact form fields
         if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
             return;
@@ -144,24 +146,21 @@ function initTerminal() {
         if (autoTypingActive) return;
         currentInput = e.target.value;
         terminalTyped.textContent = currentInput;
-        try {
-            hiddenInput.setSelectionRange(currentInput.length, currentInput.length);
-        } catch (err) {}
     });
 
     hiddenInput.addEventListener('keydown', (e) => {
         if (autoTypingActive) return;
         if (e.key === 'Enter') {
             const cmd = currentInput.trim().toLowerCase();
-            
+
             // Print command line
             const promptLine = document.createElement('div');
             promptLine.className = 'terminal-line';
             promptLine.innerHTML = `<span class="color-blue">guest@dipesh-chadgal:~$</span> ${currentInput}`;
-            
+
             // Insert before the current active typing line
             terminalOutput.insertBefore(promptLine, terminalTyped.closest('.terminal-line'));
-            
+
             // Execute
             if (cmd) {
                 if (cmd === 'clear') {
@@ -178,12 +177,12 @@ function initTerminal() {
                     printLine(`bash: command not found: ${cmd}. Type 'help' for options.`, 'error');
                 }
             }
-            
+
             // Reset input
             currentInput = "";
             hiddenInput.value = "";
             terminalTyped.textContent = "";
-            
+
             // Auto scroll
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
         }
@@ -215,10 +214,10 @@ function initTerminal() {
         promptLine.className = 'terminal-line';
         promptLine.innerHTML = `<span class="color-blue">guest@dipesh-chadgal:~$</span> ${terminalTyped.textContent}`;
         terminalOutput.insertBefore(promptLine, terminalTyped.closest('.terminal-line'));
-        
+
         // Print output
         printLine(commands[cmdName], 'output');
-        
+
         // Reset typing cursor row
         terminalTyped.textContent = "";
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
@@ -232,7 +231,7 @@ function initPipeline() {
     const btnTrigger = document.getElementById('btn-trigger-pipeline');
     const btnClear = document.getElementById('btn-clear-logs');
     const logConsole = document.getElementById('pipeline-logs');
-    
+
     const stages = [
         { id: 'stage-commit', name: 'Git Commit', duration: 1500 },
         { id: 'stage-lint', name: 'Code Quality', duration: 1800 },
@@ -401,7 +400,7 @@ function initTopology() {
     const detailsStatus = document.getElementById('details-node-status');
     const detailsDesc = document.getElementById('details-node-desc');
     const detailsStats = document.getElementById('details-stats-container');
-    
+
     const detailsTech = document.getElementById('details-node-tech');
     const detailsEndpoint = document.getElementById('details-node-endpoint');
     const detailsMetricVal = document.getElementById('details-metric-val');
@@ -500,7 +499,7 @@ function initTopology() {
     };
 
     const nodes = document.querySelectorAll('.arch-node');
-    
+
     nodes.forEach(node => {
         node.addEventListener('mouseenter', () => {
             const nodeId = node.getAttribute('data-node');
@@ -508,29 +507,29 @@ function initTopology() {
             if (data) {
                 detailsTitle.textContent = data.title;
                 detailsStatus.textContent = data.status;
-                
+
                 // Adjust status badge color
                 if (data.status === 'READY' || data.status === 'RUNNING' || data.status === 'ONLINE') {
                     detailsStatus.className = 'node-badge';
                 } else {
                     detailsStatus.className = 'node-badge busy';
                 }
-                
+
                 detailsDesc.textContent = data.desc;
-                
+
                 // Stats
                 detailsTech.textContent = data.tech;
                 detailsEndpoint.textContent = data.endpoint;
-                
+
                 document.getElementById('details-metric-name').textContent = data.metricLabel;
                 detailsMetricVal.textContent = data.metricText;
                 detailsMetricFill.style.width = `${data.metricVal}%`;
-                
+
                 detailsReplicas.textContent = data.replicas;
 
                 detailsStats.style.display = 'flex';
                 detailsCard.style.borderColor = 'var(--neon-cyan)';
-                
+
                 // Light up connection wire to this node
                 highlightWire(nodeId, true);
             }
@@ -550,7 +549,7 @@ function initTopology() {
         else if (nodeId === 'pod-2') wireId = 'wire-pod-2';
         else if (nodeId === 'pod-3') wireId = 'wire-pod-3';
         else if (nodeId === 'db-primary') wireId = 'wire-db-primary';
-        
+
         if (wireId) {
             const wire = document.getElementById(wireId);
             if (wire) {
@@ -572,10 +571,10 @@ function initTopology() {
 function initTelemetry() {
     // Stat elements
     const statLatency = document.getElementById('stat-latency');
-    
+
     // Wave tracking variables
     let timeTick = 0;
-    
+
     // Charts config
     const cpuChart = {
         linePath: document.querySelector('.cpu-telemetry .chart-line'),
@@ -610,17 +609,17 @@ function initTelemetry() {
 
         // 1. Update CPU
         updateChartMetric(cpuChart);
-        
+
         // 2. Update Traffic
         updateChartMetric(trafficChart);
 
         // 3. Update Memory Gauge
         const mockRamPct = 48 + Math.floor(Math.sin(timeTick / 3) * 6) + Math.floor(Math.random() * 3);
         const ramUsedGb = ((mockRamPct / 100) * 8).toFixed(2);
-        
+
         ramPctText.textContent = `${mockRamPct}%`;
         ramValText.textContent = `${ramUsedGb} GB / 8 GB`;
-        
+
         // Circle circumference is 2 * pi * r = 2 * 3.14159 * 40 = 251.3
         // Stretched arc has stroke-dasharray="188 250" (fills 188px of 250px track)
         // Adjust dashoffset starting from -31 (empty) to -31 - 188 (full)
@@ -646,11 +645,11 @@ function initTelemetry() {
         }
 
         let newVal = Math.floor(chartObj.history[chartObj.history.length - 1] + drift);
-        
+
         // Boundaries checks
         if (newVal < chartObj.min) newVal = chartObj.min + Math.floor(Math.random() * 5);
         if (newVal > chartObj.max) newVal = chartObj.max - Math.floor(Math.random() * 5);
-        
+
         chartObj.current = newVal;
         chartObj.history.push(newVal);
         chartObj.history.shift();
@@ -670,7 +669,7 @@ function initTelemetry() {
         const svgW = 400;
         const svgH = 150;
         const stepX = svgW / (chartObj.history.length - 1);
-        
+
         let pathD = "";
         let fillD = "";
 
@@ -725,9 +724,9 @@ function initModals() {
         dialog.addEventListener('click', (e) => {
             const rect = dialog.getBoundingClientRect();
             const isInDialog = (
-                rect.top <= e.clientY && 
+                rect.top <= e.clientY &&
                 e.clientY <= rect.top + rect.height &&
-                rect.left <= e.clientX && 
+                rect.left <= e.clientX &&
                 e.clientX <= rect.left + rect.width
             );
             if (!isInDialog) {
@@ -746,7 +745,7 @@ function initContactForm() {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const btnSubmit = form.querySelector('.btn-submit');
         const name = document.getElementById('form-name').value;
         const email = document.getElementById('form-email').value;
