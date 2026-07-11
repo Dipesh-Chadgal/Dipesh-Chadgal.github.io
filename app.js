@@ -71,12 +71,19 @@ function initTerminal() {
     // Inject hidden input to handle mobile & desktop keyboard capture smoothly
     const hiddenInput = document.createElement('input');
     hiddenInput.type = 'text';
+    hiddenInput.autocomplete = 'off';
+    hiddenInput.setAttribute('autocorrect', 'off');
+    hiddenInput.setAttribute('autocapitalize', 'off');
+    hiddenInput.setAttribute('spellcheck', 'false');
+    
     hiddenInput.style.position = 'absolute';
-    hiddenInput.style.left = '-9999px';
-    hiddenInput.style.top = '0';
-    hiddenInput.style.width = '1px';
-    hiddenInput.style.height = '1px';
     hiddenInput.style.opacity = '0.01';
+    hiddenInput.style.pointerEvents = 'none';
+    hiddenInput.style.left = '0';
+    hiddenInput.style.top = '0';
+    hiddenInput.style.width = '10px';
+    hiddenInput.style.height = '10px';
+    hiddenInput.style.fontSize = '16px'; // Prevent page zoom on iOS
     terminalOutput.appendChild(hiddenInput);
 
     // Initial output
@@ -105,6 +112,9 @@ function initTerminal() {
     // Handle focus visual state classes
     hiddenInput.addEventListener('focus', () => {
         terminalCard.classList.add('focused');
+        try {
+            hiddenInput.setSelectionRange(hiddenInput.value.length, hiddenInput.value.length);
+        } catch (err) {}
     });
     hiddenInput.addEventListener('blur', () => {
         terminalCard.classList.remove('focused');
@@ -134,6 +144,9 @@ function initTerminal() {
         if (autoTypingActive) return;
         currentInput = e.target.value;
         terminalTyped.textContent = currentInput;
+        try {
+            hiddenInput.setSelectionRange(currentInput.length, currentInput.length);
+        } catch (err) {}
     });
 
     hiddenInput.addEventListener('keydown', (e) => {
