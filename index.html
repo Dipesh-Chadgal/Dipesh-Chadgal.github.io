@@ -1,214 +1,1371 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dipesh Singh Chadgal - Computer Science Engineer specializing in web development and innovative software solutions">
-    <meta name="keywords" content="Computer Science, Web Development, Software Engineer, Full Stack Developer, Portfolio">
-    <meta name="author" content="Dipesh Singh Chadgal">
-    <title>Dipesh Singh Chadgal | Software Engineer & Developer</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description"
+        content="Dipesh Singh Chadgal | DevOps, SRE & Cloud Infrastructure Engineer portfolio. Interactive pipeline simulation, cloud architecture map, and live metrics NOC dashboard.">
+    <title>Dipesh Singh Chadgal | DevOps & Cloud Platform Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">Dipesh Singh Chadgal</a>
+    <!-- Background overlay for scanlines and matrix-grid look -->
+    <div class="system-grid-overlay"></div>
+    <div class="scanlines"></div>
+
+    <!-- Floating Navigation Bar -->
+    <header class="app-header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-prompt">~</span>
+                <span class="logo-name">Dipesh-chadgal</span>
+                <span class="logo-cursor"></span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#pipeline" class="nav-link">Pipeline</a>
+                <a href="#architecture" class="nav-link">Architecture</a>
+                <a href="#dashboard" class="nav-link">Telemetry</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link btn-contact">Connect</a>
+            </nav>
+            <div class="status-indicator">
+                <span class="status-dot online"></span>
+                <span class="status-text">SYS_STATUS: OPERATIONAL</span>
             </div>
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <div class="hero-content">
-                <span class="hero-tag">Computer Science Engineer</span>
-                <h1>Hi, I'm <span class="highlight">Dipesh Singh Chadgal</span></h1>
-                <p class="hero-subtitle">Transforming ideas into elegant digital solutions through innovative web development and software engineering</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary">View My Work</a>
-                    <a href="#contact" class="btn-outline">Get In Touch</a>
-                </div>
-            </div>
+            <button class="menu-toggle" aria-label="Toggle menu" popovertarget="mobile-nav">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
         </div>
     </header>
-    <main id="projects">
-        <section class="projects">
-            <div class="section-header">
-                <span class="section-tag">Portfolio</span>
-                <h2>Featured Projects</h2>
-                <p class="section-subtitle">Showcasing my journey through code, design, and innovation</p>
+
+    <!-- Mobile Nav Popover -->
+    <div id="mobile-nav" popover class="mobile-nav-panel">
+        <button class="close-mobile-nav" popovertargetaction="hide" popovertarget="mobile-nav">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <nav class="mobile-menu">
+            <a href="#about" popovertarget="mobile-nav" popovertargetaction="hide">About</a>
+            <a href="#pipeline" popovertarget="mobile-nav" popovertargetaction="hide">Pipeline</a>
+            <a href="#architecture" popovertarget="mobile-nav" popovertargetaction="hide">Architecture</a>
+            <a href="#dashboard" popovertarget="mobile-nav" popovertargetaction="hide">Telemetry</a>
+            <a href="#skills" popovertarget="mobile-nav" popovertargetaction="hide">Skills</a>
+            <a href="#projects" popovertarget="mobile-nav" popovertargetaction="hide">Projects</a>
+            <a href="#contact" popovertarget="mobile-nav" popovertargetaction="hide" class="btn-contact">Connect</a>
+        </nav>
+    </div>
+
+    <main class="container">
+        <!-- Hero & Terminal Section -->
+        <section id="about" class="section hero-section">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">SITE::RELIABILITY::ENGINEER</span>
+                </div>
+                <h1 class="hero-title">Automating scale. <br><span class="text-glow">Securing delivery.</span></h1>
+                <p class="hero-subtitle">
+                    Hi, I'm Dipesh. I'm a DevOps Engineer at Wipro. I architect resilient cloud-native infrastructures,
+                    automate complex CI/CD delivery lifecycles, and optimize system reliability. I bridge the gap
+                    between development efficiency and production stability.
+                </p>
+                <div class="hero-actions">
+                    <a href="#pipeline" class="btn btn-primary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        Run Live Pipeline
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                        </svg>
+                        ssh contact
+                    </a>
+                </div>
             </div>
-            <div class="project-list">
-                <div class="project">
-                    <div class="project-icon">🎨</div>
-                    <h3>Landing Pages V1</h3>
-                    <p>Modern, responsive landing page design with clean aesthetics and smooth animations</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
+
+            <!-- Terminal Emulator Card -->
+            <div class="hero-terminal glass-panel">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
                     </div>
-                    <a href="/Landing-Page-V1" target="_blank" class="btn-secondary">View Project →</a>
+                    <div class="terminal-title">bash - guest@dipesh-chadgal.dev</div>
+                    <div class="terminal-lang">sh</div>
                 </div>
-                <div class="project">
-                    <div class="project-icon">✨</div>
-                    <h3>Landing Pages V2</h3>
-                    <p>Enhanced landing page featuring advanced UI/UX principles and interactive elements</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    <a href="/Landing-Page-V2" target="_blank" class="btn-secondary">View Project →</a>
+                <div class="terminal-body" id="terminal-output">
+                    <div class="terminal-line"><span class="color-blue">guest@dipesh-chadgal:~$</span> <span
+                            class="typed-text" id="terminal-typed"></span><span class="cursor">_</span></div>
                 </div>
-                <div class="project">
-                    <div class="project-icon">💼</div>
-                    <h3>Portfolio Website</h3>
-                    <p>Personal portfolio showcasing projects with elegant design and seamless navigation</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">Responsive</span>
-                    </div>
-                    <a href="/portfolio" target="_blank" class="btn-secondary">View Project →</a>
-                </div>
-                <div class="project">
-                    <div class="project-icon">🌐</div>
-                    <h3>Product Showcase</h3>
-                    <p>Collection of small-scale web pages demonstrating various design patterns and layouts</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">UI/UX</span>
-                    </div>
-                    <a href="/Product-Website" target="_blank" class="btn-secondary">View Project →</a>
-                </div>
-                <div class="project">
-                    <div class="project-icon">🔐</div>
-                    <h3>Authentication Pages</h3>
-                    <p>Secure and user-friendly login interfaces with modern design patterns</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">Forms</span>
-                    </div>
-                    <a href="/Login-Page" target="_blank" class="btn-secondary">View Project →</a>
-                </div>
-                <div class="project project-featured">
-                    <div class="project-icon">🚨</div>
-                    <h3>Crime Alert</h3>
-                    <p>Comprehensive law enforcement management system for reporting crimes, filing complaints, and tracking incident tickets with automated case management and administrative dashboard</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Spring Boot</span>
-                        <span class="tag">React</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Full Stack</span>
-                    </div>
-                    <a href="https://github.com/Dipesh-Chadgal/CrimeAlerto" target="_blank" class="btn-secondary">View on GitHub →</a>
-                </div>
-                <div class="project project-featured">
-                    <div class="project-icon">🍔</div>
-                    <h3>Habibi Food</h3>
-                    <p>Full-stack online food ordering system with real-time order tracking and payment integration</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Django</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                    <a href="https://dipeshchadgal10.pythonanywhere.com/" target="_blank" class="btn-secondary">View Live Site →</a>
-                </div>
-                <div class="project">
-                    <div class="project-icon">✈️</div>
-                    <h3>Visa Consultant Platform</h3>
-                    <p>Comprehensive website for visa consultation services with appointment booking system</p>
-                    <div class="project-tags">
-                        <span class="tag">Web Dev</span>
-                        <span class="tag">Backend</span>
-                        <span class="tag">Database</span>
-                    </div>
-                    <a href="https://github.com/Dipesh-Chadgal/visa-consultant-project.git" target="_blank" class="btn-secondary">View on GitHub →</a>
-                </div>
-                <div class="project">
-                    <div class="project-icon">📝</div>
-                    <h3>Plagiarism Detector</h3>
-                    <p>AI-powered tool for detecting plagiarism using advanced text comparison algorithms</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">ML</span>
-                        <span class="tag">NLP</span>
-                    </div>
-                    <a href="https://github.com/Dipesh-Chadgal/plagiarism-detector.git" target="_blank" class="btn-secondary">View on GitHub →</a>
-                </div>
-         
-                
-                <!-- Add more projects as needed -->
             </div>
         </section>
-    </main>
-    <section id="about" class="about">
-        <div class="about-container">
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- CI/CD Pipeline Simulator -->
+        <section id="pipeline" class="section pipeline-section">
             <div class="section-header">
-                <span class="section-tag">About</span>
-                <h2>Passionate About Technology</h2>
+                <h2 class="section-title">Automated <span class="text-glow">CI/CD Pipeline</span></h2>
+                <p class="section-desc">Experience a live deployment simulation. Click to trigger the pipeline and watch
+                    the build, test, containerization, and Kubernetes deployment run with real-time logs.</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm Dipesh Singh Chadgal, a Computer Science & Engineering graduate from <strong>Chandigarh Engineering College</strong> with a passion for building innovative digital solutions that make a difference.</p>
-                    <p>With expertise in web development, software engineering, and problem-solving, I thrive on transforming complex challenges into elegant, user-friendly applications. My journey in tech is driven by curiosity, creativity, and a commitment to continuous learning.</p>
-                    <div class="skills">
-                        <h3>Technical Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Responsive Design</span>
-                            <span class="skill-tag">UI/UX</span>
+
+            <div class="pipeline-grid">
+                <!-- Pipeline Visualizer -->
+                <div class="pipeline-visualizer glass-panel">
+                    <div class="panel-header">
+                        <div class="panel-title-text">
+                            <span class="pulse-indicator"></span>
+                            PIPELINE RUNNER v1.4.2
+                        </div>
+                        <button class="btn btn-sm btn-primary" id="btn-trigger-pipeline">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            Trigger Pipeline
+                        </button>
+                    </div>
+                    <div class="pipeline-stages">
+                        <!-- Stage 1 -->
+                        <div class="pipeline-stage" id="stage-commit" data-stage="0">
+                            <div class="stage-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="18" cy="18" r="3"></circle>
+                                    <circle cx="6" cy="6" r="3"></circle>
+                                    <line x1="6" y1="9" x2="6" y2="21"></line>
+                                    <path d="M6 15h12"></path>
+                                </svg>
+                            </div>
+                            <div class="stage-info">
+                                <span class="stage-name">Git Commit</span>
+                                <span class="stage-status">Idle</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector" id="conn-0">
+                            <div class="connector-progress"></div>
+                        </div>
+
+                        <!-- Stage 2 -->
+                        <div class="pipeline-stage" id="stage-lint" data-stage="1">
+                            <div class="stage-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stage-info">
+                                <span class="stage-name">Code Quality</span>
+                                <span class="stage-status">Idle</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector" id="conn-1">
+                            <div class="connector-progress"></div>
+                        </div>
+
+                        <!-- Stage 3 -->
+                        <div class="pipeline-stage" id="stage-test" data-stage="2">
+                            <div class="stage-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="stage-info">
+                                <span class="stage-name">Unit Tests</span>
+                                <span class="stage-status">Idle</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector" id="conn-2">
+                            <div class="connector-progress"></div>
+                        </div>
+
+                        <!-- Stage 4 -->
+                        <div class="pipeline-stage" id="stage-build" data-stage="3">
+                            <div class="stage-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                                </svg>
+                            </div>
+                            <div class="stage-info">
+                                <span class="stage-name">Docker Build</span>
+                                <span class="stage-status">Idle</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector" id="conn-3">
+                            <div class="connector-progress"></div>
+                        </div>
+
+                        <!-- Stage 5 -->
+                        <div class="pipeline-stage" id="stage-deploy" data-stage="4">
+                            <div class="stage-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stage-info">
+                                <span class="stage-name">K8s Rollout</span>
+                                <span class="stage-status">Idle</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pipeline Log Terminal -->
+                <div class="pipeline-console glass-panel">
+                    <div class="console-header">
+                        <span class="console-tab active">Log Stream</span>
+                        <div class="console-controls">
+                            <span class="console-dot-green">● Live</span>
+                            <button id="btn-clear-logs" class="btn-clear" title="Clear console">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path
+                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="console-body" id="pipeline-logs">
+                        <div class="log-row info">Console initialized. Ready to execute pipeline.</div>
+                        <div class="log-row info">Click [Trigger Pipeline] above to start.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Cloud Architecture Map -->
+        <section id="architecture" class="section architecture-section">
+            <div class="section-header">
+                <h2 class="section-title">Cloud <span class="text-glow">Infrastructure Topology</span></h2>
+                <p class="section-desc">Interactive production environment architecture. Hover over nodes to inspect
+                    configurations, networking routes, and simulated live metadata.</p>
+            </div>
+
+            <div class="architecture-layout">
+                <!-- Map Node Details -->
+                <div class="arch-details glass-panel" id="arch-details-card">
+                    <div class="panel-header">
+                        <span class="panel-title-text" id="details-node-title">Node Inspector</span>
+                        <span class="node-badge" id="details-node-status">READY</span>
+                    </div>
+                    <div class="arch-details-body">
+                        <p class="arch-details-desc" id="details-node-desc">Hover over any node in the topology map on
+                            the right to inspect its cluster parameters, ingress settings, and metrics.</p>
+                        <div class="details-stats" id="details-stats-container" style="display: none;">
+                            <div class="detail-row">
+                                <span class="detail-label">Technology:</span>
+                                <span class="detail-val" id="details-node-tech">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Endpoint:</span>
+                                <span class="detail-val code-text" id="details-node-endpoint">-</span>
+                            </div>
+                            <div class="detail-row" id="details-row-metric">
+                                <span class="detail-label" id="details-metric-name">Load:</span>
+                                <div class="detail-val-with-bar">
+                                    <span id="details-metric-val">0%</span>
+                                    <div class="metric-progress-bar">
+                                        <div class="metric-progress-fill" id="details-metric-fill" style="width: 0%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Replicas:</span>
+                                <span class="detail-val" id="details-node-replicas">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topology SVG Container -->
+                <div class="arch-map glass-panel">
+                    <svg viewBox="0 0 800 500" class="topology-svg" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Definitions for Gradients and Markers -->
+                        <defs>
+                            <linearGradient id="cyan-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="oklch(0.75 0.18 200)" />
+                                <stop offset="100%" stop-color="oklch(0.55 0.18 220)" />
+                            </linearGradient>
+                            <linearGradient id="violet-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="oklch(0.65 0.22 300)" />
+                                <stop offset="100%" stop-color="oklch(0.45 0.22 320)" />
+                            </linearGradient>
+                            <linearGradient id="green-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="oklch(0.78 0.17 140)" />
+                                <stop offset="100%" stop-color="oklch(0.58 0.17 160)" />
+                            </linearGradient>
+                            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+
+                        <!-- Connection Paths (Wires) -->
+                        <g class="connections" stroke="rgba(255,255,255,0.08)" stroke-width="2" fill="none">
+                            <!-- Ingress Route -->
+                            <path d="M 80,250 C 150,250 170,250 200,250" class="wire-active" id="wire-ingress"></path>
+                            <!-- LB to K8s Pods -->
+                            <path d="M 230,250 C 280,250 300,120 380,120" class="wire-active" id="wire-pod-1"></path>
+                            <path d="M 230,250 C 280,250 300,250 380,250" class="wire-active" id="wire-pod-2"></path>
+                            <path d="M 230,250 C 280,250 300,380 380,380" class="wire-active" id="wire-pod-3"></path>
+                            <!-- Pods to Cache -->
+                            <path d="M 440,120 C 500,120 520,180 580,180"></path>
+                            <path d="M 440,250 C 500,250 520,180 580,180"></path>
+                            <!-- Pods to Primary DB -->
+                            <path d="M 440,250 C 500,250 520,320 580,320" class="wire-active" id="wire-db-primary">
+                            </path>
+                            <path d="M 440,380 C 500,380 520,320 580,320" class="wire-active"></path>
+                            <!-- DB Primary to Replica -->
+                            <path d="M 640,320 C 670,320 670,420 700,420" stroke-dasharray="4 4"></path>
+                        </g>
+
+                        <!-- Nodes Group -->
+                        <!-- 1. Client Ingress Node -->
+                        <g class="arch-node" data-node="ingress" transform="translate(80, 250)">
+                            <circle r="26" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.75 0.18 200)"
+                                stroke-width="2"></circle>
+                            <circle r="32" class="node-glow" fill="none" stroke="oklch(0.75 0.18 200)" stroke-width="1"
+                                opacity="0.2"></circle>
+                            <path d="M-10,-8 h20 v16 h-20 Z M-10,-4 h20 M-6,-8 v4 M0,-8 v4 M6,-8 v4" fill="none"
+                                stroke="oklch(0.75 0.18 200)" stroke-width="1.5"></path>
+                            <text y="42" text-anchor="middle" class="node-label">Public Traffic</text>
+                        </g>
+
+                        <!-- 2. Nginx Load Balancer Node -->
+                        <g class="arch-node" data-node="balancer" transform="translate(230, 250)">
+                            <circle r="30" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.65 0.22 300)"
+                                stroke-width="2"></circle>
+                            <circle r="36" class="node-glow" fill="none" stroke="oklch(0.65 0.22 300)" stroke-width="1"
+                                opacity="0.2"></circle>
+                            <!-- Load Balancer Icon -->
+                            <path d="M-12,-8 L-4,0 L-12,8 M12,-8 L4,0 L12,8 M-4,0 H4" fill="none"
+                                stroke="oklch(0.65 0.22 300)" stroke-width="2"></path>
+                            <text y="46" text-anchor="middle" class="node-label">Nginx Ingress</text>
+                        </g>
+
+                        <!-- 3. Kubernetes Pod 1 -->
+                        <g class="arch-node" data-node="pod-1" transform="translate(410, 120)">
+                            <circle r="28" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.75 0.18 200)"
+                                stroke-width="2"></circle>
+                            <!-- Pod Icon -->
+                            <path d="M-8,-10 L8,-10 L12,-2 L4,8 L-4,8 L-12,-2 Z" fill="none"
+                                stroke="oklch(0.75 0.18 200)" stroke-width="1.5"></path>
+                            <text y="44" text-anchor="middle" class="node-label">web-app-pod-1</text>
+                        </g>
+
+                        <!-- 4. Kubernetes Pod 2 -->
+                        <g class="arch-node" data-node="pod-2" transform="translate(410, 250)">
+                            <circle r="28" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.75 0.18 200)"
+                                stroke-width="2"></circle>
+                            <path d="M-8,-10 L8,-10 L12,-2 L4,8 L-4,8 L-12,-2 Z" fill="none"
+                                stroke="oklch(0.75 0.18 200)" stroke-width="1.5"></path>
+                            <text y="44" text-anchor="middle" class="node-label">web-app-pod-2</text>
+                        </g>
+
+                        <!-- 5. Kubernetes Pod 3 -->
+                        <g class="arch-node" data-node="pod-3" transform="translate(410, 380)">
+                            <circle r="28" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.75 0.18 200)"
+                                stroke-width="2"></circle>
+                            <path d="M-8,-10 L8,-10 L12,-2 L4,8 L-4,8 L-12,-2 Z" fill="none"
+                                stroke="oklch(0.75 0.18 200)" stroke-width="1.5"></path>
+                            <text y="44" text-anchor="middle" class="node-label">web-app-pod-3</text>
+                        </g>
+
+                        <!-- 6. Redis Cache Node -->
+                        <g class="arch-node" data-node="cache" transform="translate(610, 180)">
+                            <circle r="28" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.78 0.17 140)"
+                                stroke-width="2"></circle>
+                            <!-- Cache Icon (Stacked sheets) -->
+                            <path
+                                d="M-10,-8 L10,-8 L12,-4 L-8,-4 Z M-10,-2 L10,-2 L12,2 L-8,2 Z M-10,4 L10,4 L12,8 L-8,8 Z"
+                                fill="none" stroke="oklch(0.78 0.17 140)" stroke-width="1.5"></path>
+                            <text y="44" text-anchor="middle" class="node-label">redis-cache</text>
+                        </g>
+
+                        <!-- 7. Database Primary -->
+                        <g class="arch-node" data-node="db-primary" transform="translate(610, 320)">
+                            <circle r="30" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.75 0.18 200)"
+                                stroke-width="2"></circle>
+                            <circle r="36" class="node-glow" fill="none" stroke="oklch(0.75 0.18 200)" stroke-width="1"
+                                opacity="0.1"></circle>
+                            <!-- Cylinder Database Icon -->
+                            <path
+                                d="M-10,-10 C-10,-14 10,-14 10,-10 L10,10 C10,14 -10,14 -10,10 Z M-10,-2 C-10,2 10,2 10,-2 M-10,4 C-10,8 10,8 10,4"
+                                fill="none" stroke="oklch(0.75 0.18 200)" stroke-width="1.5"></path>
+                            <text y="46" text-anchor="middle" class="node-label">pg-db-primary</text>
+                        </g>
+
+                        <!-- 8. Database Replica -->
+                        <g class="arch-node" data-node="db-replica" transform="translate(730, 420)">
+                            <circle r="24" class="node-bg" fill="oklch(0.12 0.01 240)" stroke="oklch(0.75 0.18 200)"
+                                stroke-width="1.5" stroke-dasharray="3 2"></circle>
+                            <!-- Smaller cylinder -->
+                            <path
+                                d="M-8,-8 C-8,-11 8,-11 8,-8 L8,8 C8,11 -8,11 -8,8 Z M-8,-1 C-8,2 8,2 8,-1 M-8,4 C-8,7 8,7 8,4"
+                                fill="none" stroke="oklch(0.75 0.18 200)" stroke-width="1.2" opacity="0.7"></path>
+                            <text y="38" text-anchor="middle" class="node-label">pg-db-replica</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- NOC Metrics Dashboard Section -->
+        <section id="dashboard" class="section telemetry-section">
+            <div class="section-header">
+                <h2 class="section-title">Telemetry & <span class="text-glow">NOC Dashboard</span></h2>
+                <p class="section-desc">Live production metrics monitoring. Simulating live clusters metrics using
+                    standard telemetry algorithms.</p>
+            </div>
+
+            <!-- NOC Panels Grid -->
+            <div class="dashboard-grid">
+                <!-- Panel 1: Stats Counters -->
+                <div class="dash-panel glass-panel summary-stats">
+                    <div class="stat-box">
+                        <span class="stat-title">CLUSTER STATUS</span>
+                        <span class="stat-value text-glow-green" id="stat-cluster-status">HEALTHY</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">SYSTEM UPTIME</span>
+                        <span class="stat-value color-green">99.999%</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">DEPLOYMENT STATUS</span>
+                        <span class="stat-value color-blue">v1.4.2</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">AVG RESPONSE TIME</span>
+                        <span class="stat-value" id="stat-latency">42 ms</span>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Live CPU Utilization Wave Graph -->
+                <div class="dash-panel glass-panel cpu-telemetry">
+                    <div class="panel-header">
+                        <span class="panel-title-text">CPU UTILIZATION (AVG)</span>
+                        <span class="panel-indicator" id="cpu-current-val">24%</span>
+                    </div>
+                    <div class="chart-container">
+                        <svg viewBox="0 0 400 150" class="metric-chart" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="chart-glow" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="oklch(0.75 0.18 200)" stop-opacity="0.3"></stop>
+                                    <stop offset="100%" stop-color="oklch(0.75 0.18 200)" stop-opacity="0.0"></stop>
+                                </linearGradient>
+                            </defs>
+                            <!-- Grid lines -->
+                            <line x1="0" y1="37.5" x2="400" y2="37.5" stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                            </line>
+                            <line x1="0" y1="75" x2="400" y2="75" stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                            </line>
+                            <line x1="0" y1="112.5" x2="400" y2="112.5" stroke="rgba(255,255,255,0.05)"
+                                stroke-width="1"></line>
+                            <!-- Metric Area & Line -->
+                            <path d="" class="chart-fill" fill="url(#chart-glow)"></path>
+                            <path d="" class="chart-line" stroke="oklch(0.75 0.18 200)" stroke-width="2" fill="none">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Ingress Requests Flow Graph -->
+                <div class="dash-panel glass-panel traffic-telemetry">
+                    <div class="panel-header">
+                        <span class="panel-title-text">INGRESS TRAFFIC (RPS)</span>
+                        <span class="panel-indicator color-violet" id="traffic-current-val">120 rps</span>
+                    </div>
+                    <div class="chart-container">
+                        <svg viewBox="0 0 400 150" class="metric-chart" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="violet-chart-glow" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="oklch(0.65 0.22 300)" stop-opacity="0.3"></stop>
+                                    <stop offset="100%" stop-color="oklch(0.65 0.22 300)" stop-opacity="0.0"></stop>
+                                </linearGradient>
+                            </defs>
+                            <line x1="0" y1="37.5" x2="400" y2="37.5" stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                            </line>
+                            <line x1="0" y1="75" x2="400" y2="75" stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                            </line>
+                            <line x1="0" y1="112.5" x2="400" y2="112.5" stroke="rgba(255,255,255,0.05)"
+                                stroke-width="1"></line>
+                            <!-- Metric Area & Line -->
+                            <path d="" class="chart-fill-violet" fill="url(#violet-chart-glow)"></path>
+                            <path d="" class="chart-line-violet" stroke="oklch(0.65 0.22 300)" stroke-width="2"
+                                fill="none"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Panel 4: Memory Gauge -->
+                <div class="dash-panel glass-panel memory-telemetry">
+                    <div class="panel-header">
+                        <span class="panel-title-text">RAM USAGE</span>
+                        <span class="panel-indicator color-green" id="ram-current-val">4.2 GB / 8 GB</span>
+                    </div>
+                    <div class="gauge-wrapper">
+                        <div class="gauge">
+                            <svg viewBox="0 0 100 100" class="gauge-svg">
+                                <circle cx="50" cy="50" r="40" class="gauge-bg" stroke="rgba(255,255,255,0.05)"
+                                    stroke-width="8" fill="none" stroke-dasharray="188 250" stroke-dashoffset="-31"
+                                    stroke-linecap="round"></circle>
+                                <circle cx="50" cy="50" r="40" class="gauge-fill" id="ram-gauge-fill"
+                                    stroke="oklch(0.78 0.17 140)" stroke-width="8" fill="none"
+                                    stroke-dasharray="188 250" stroke-dashoffset="-31" stroke-linecap="round"></circle>
+                            </svg>
+                            <div class="gauge-value" id="ram-pct">52%</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="contact" class="contact">
-        <div class="contact-container">
+        </section>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
             <div class="section-header">
-                <span class="section-tag">Get In Touch</span>
-                <h2>Let's Work Together</h2>
-                <p class="section-subtitle">Have a project in mind or want to collaborate? I'd love to hear from you!</p>
+                <h2 class="section-title">Core <span class="text-glow">Expertise</span></h2>
+                <p class="section-desc">DevOps, Site Reliability, Systems, and automation toolkits structured by
+                    technical vertical.</p>
             </div>
-            <div class="contact-grid">
-                <a href="mailto:dipeshchadgal10@gmail.com" class="contact-card">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>dipeshchadgal10@gmail.com</p>
+
+            <div class="skills-grid">
+                <!-- IaC & Config Management -->
+                <div class="skills-card glass-panel">
+                    <div class="skills-card-header">
+                        <svg class="skills-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        <h3>Infrastructure as Code</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>Terraform <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>Ansible <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                        <li>Pulumi <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span></span><span></span></span>
+                        </li>
+                        <li>CloudFormation <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                    </ul>
+                </div>
+
+                <!-- Containers & Orchestration -->
+                <div class="skills-card glass-panel">
+                    <div class="skills-card-header">
+                        <svg class="skills-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                        <h3>Container Orchestration</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>Kubernetes (EKS/GKE) <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>Docker <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>Helm <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                        <li>Istio Service Mesh <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span></span><span></span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CI/CD & Delivery -->
+                <div class="skills-card glass-panel">
+                    <div class="skills-card-header">
+                        <svg class="skills-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h3>CI/CD Pipelines</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>GitHub Actions <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>ArgoCD (GitOps) <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                        <li>GitLab CI <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                        <li>Jenkins <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span></span><span></span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Providers -->
+                <div class="skills-card glass-panel">
+                    <div class="skills-card-header">
+                        <svg class="skills-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                        <h3>Cloud Platforms</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>AWS (VPC, EKS, RDS) <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>Google Cloud (GKE) <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                        <li>Azure <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span></span><span></span><span></span></span></li>
+                        <li>Hybrid/On-Premise <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span></span><span></span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Observability & Logging -->
+                <div class="skills-card glass-panel">
+                    <div class="skills-card-header">
+                        <svg class="skills-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        <h3>Observability & SRE</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>Prometheus & Grafana <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>ELK Stack / OpenSearch <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                        <li>Datadog <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span></span><span></span></span>
+                        </li>
+                        <li>OpenTelemetry <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span></span><span></span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Languages & Development -->
+                <div class="skills-card glass-panel">
+                    <div class="skills-card-header">
+                        <svg class="skills-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <h3>Systems & Languages</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>Python / Go <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span
+                                    class="active"></span><span></span></span></li>
+                        <li>Bash & Shell Scripting <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>Linux System Admin <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span class="active"></span><span
+                                    class="active"></span></span></li>
+                        <li>TypeScript / Node.js <span class="skills-level-dots"><span class="active"></span><span
+                                    class="active"></span><span class="active"></span><span></span><span></span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Projects Grid Section -->
+        <section id="projects" class="section projects-section">
+            <div class="section-header">
+                <h2 class="section-title">Production-Grade <span class="text-glow">Projects</span></h2>
+                <p class="section-desc">Explore projects focusing on high availability, security hardening, and GitOps
+                    automation. Click cards to view architecture profiles.</p>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card glass-panel" data-project="project-1">
+                    <div class="project-card-image-placeholder">
+                        <svg viewBox="0 0 100 100" class="project-card-icon">
+                            <rect x="10" y="20" width="80" height="60" rx="5" fill="none" stroke="currentColor"
+                                stroke-width="2" opacity="0.3"></rect>
+                            <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            <line x1="30" y1="50" x2="35" y2="50" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="65" y1="50" x2="70" y2="50" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="50" y1="30" x2="50" y2="35" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="50" y1="65" x2="50" y2="70" stroke="currentColor" stroke-width="2"></line>
+                        </svg>
+                        <div class="project-card-glow"></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-tag">IAC / AWS</span>
+                        <h3 class="project-card-title">Multi-Region Kubernetes via Terraform</h3>
+                        <p class="project-card-desc">Architected high-availability EKS clusters spanning multi-regions.
+                            Custom Terraform modules with GitOps ArgoCD configs.</p>
+                        <div class="project-footer">
+                            <span class="btn-text">View Architecture Diagram</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card glass-panel" data-project="project-2">
+                    <div class="project-card-image-placeholder">
+                        <svg viewBox="0 0 100 100" class="project-card-icon">
+                            <circle cx="30" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            <circle cx="70" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            <circle cx="50" cy="70" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            <path d="M30,40 Q50,70 50,60" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-dasharray="2 2"></path>
+                            <path d="M70,40 Q50,70 50,60" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-dasharray="2 2"></path>
+                        </svg>
+                        <div class="project-card-glow text-violet"></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-tag">GITOPS / CI-CD</span>
+                        <h3 class="project-card-title">GitOps Continuous Delivery Engine</h3>
+                        <p class="project-card-desc">Zero-trust Kubernetes CD pipelines using ArgoCD, Sealed Secrets,
+                            and Trivy image scanning triggered by GitHub Webhooks.</p>
+                        <div class="project-footer">
+                            <span class="btn-text">View Architecture Diagram</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card glass-panel" data-project="project-3">
+                    <div class="project-card-image-placeholder">
+                        <svg viewBox="0 0 100 100" class="project-card-icon">
+                            <rect x="25" y="20" width="50" height="60" rx="3" fill="none" stroke="currentColor"
+                                stroke-width="2" opacity="0.3"></rect>
+                            <polyline points="35,40 45,50 65,30" fill="none" stroke="currentColor" stroke-width="2">
+                            </polyline>
+                            <line x1="30" y1="65" x2="70" y2="65" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="30" y1="72" x2="55" y2="72" stroke="currentColor" stroke-width="2"></line>
+                        </svg>
+                        <div class="project-card-glow text-green"></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-tag">SRE / METRICS</span>
+                        <h3 class="project-card-title">Prometheus Service Level Monitoring</h3>
+                        <p class="project-card-desc">End-to-end service monitoring featuring automated alerts,
+                            Prometheus rules, Custom Grafana panels, and PagerDuty integrations.</p>
+                        <div class="project-footer">
+                            <span class="btn-text">View Architecture Diagram</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card glass-panel" data-project="project-4">
+                    <div class="project-card-image-placeholder">
+                        <svg viewBox="0 0 100 100" class="project-card-icon">
+                            <polygon points="50,15 90,35 90,65 50,85 10,65 10,35" fill="none" stroke="currentColor"
+                                stroke-width="2" opacity="0.3"></polygon>
+                            <line x1="50" y1="15" x2="50" y2="85" stroke="currentColor" stroke-width="1.5"></line>
+                            <line x1="10" y1="35" x2="90" y2="65" stroke="currentColor" stroke-width="1.5"></line>
+                            <line x1="10" y1="65" x2="90" y2="35" stroke="currentColor" stroke-width="1.5"></line>
+                        </svg>
+                        <div class="project-card-glow"></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-tag">K8S / SECURITY</span>
+                        <h3 class="project-card-title">Kubernetes Cluster Security Hardening</h3>
+                        <p class="project-card-desc">Configured cluster security controls using Kyverno policies,
+                            network security segmentation, Kube-bench, and Falco runtime audits.</p>
+                        <div class="project-footer">
+                            <span class="btn-text">View Architecture Diagram</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-header">
+                <h2 class="section-title">Open <span class="text-glow">Connection</span></h2>
+                <p class="section-desc">Establish secure socket link. Send a message to dispatch notifications directly
+                    to my SRE pager.</p>
+            </div>
+
+            <!-- Terminal Form -->
+            <div class="contact-terminal-container">
+                <div class="contact-terminal glass-panel">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-btn close"></span>
+                            <span class="terminal-btn minimize"></span>
+                            <span class="terminal-btn maximize"></span>
+                        </div>
+                        <div class="terminal-title">ssh contact@dipesh-chadgal.dev</div>
+                        <div class="terminal-lang">ssh</div>
+                    </div>
+                    <div class="terminal-body contact-body">
+                        <div class="terminal-message-banner">
+                            *** SECURE SHELL SESSION v1.8 (DIPESH-CHADGAL-NET) ***<br>
+                            Type message details below and trigger dispatch.
+                        </div>
+
+                        <form id="contact-form" class="terminal-form">
+                            <div class="form-row">
+                                <span class="prompt-symbol">guest@client:~$</span>
+                                <label for="form-name" class="form-label">NAME:</label>
+                                <input type="text" id="form-name" class="form-input" placeholder="e.g. Jane Doe"
+                                    required autocomplete="name">
+                            </div>
+                            <div class="form-row">
+                                <span class="prompt-symbol">guest@client:~$</span>
+                                <label for="form-email" class="form-label">EMAIL:</label>
+                                <input type="email" id="form-email" class="form-input"
+                                    placeholder="e.g. client@company.com" required autocomplete="email">
+                            </div>
+                            <div class="form-row-block">
+                                <div class="form-row">
+                                    <span class="prompt-symbol">guest@client:~$</span>
+                                    <label for="form-message" class="form-label">MSG:</label>
+                                </div>
+                                <textarea id="form-message" class="form-textarea"
+                                    placeholder="Type transmission content here..." required></textarea>
+                            </div>
+                            <div class="form-actions-row">
+                                <span class="prompt-symbol">guest@client:~$</span>
+                                <button type="submit" class="btn btn-primary btn-submit">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                    ./dispatch_message.sh
+                                </button>
+                            </div>
+                        </form>
+                        <div id="contact-response" class="form-response"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>© 2026 Dipesh Singh Chadgal. Built with pure 💖</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/Dipesh-Chadgal" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/dipesh-singh-chadgal" target="_blank" class="contact-card">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <p>Connect with me professionally</p>
+                <a href="https://www.linkedin.com/in/dipesh-singh-chadgal/" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z">
+                        </path>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    LinkedIn
                 </a>
-                <a href="https://github.com/Dipesh-Chadgal" target="_blank" class="contact-card">
-                    <div class="contact-icon">💻</div>
-                    <h3>GitHub</h3>
-                    <p>Check out my code</p>
+                <a href="#about">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profile
                 </a>
             </div>
-        </div>
-    </section>
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Dipesh Singh Chadgal. All Rights Reserved.</p>
-            <p class="footer-tagline">Crafted with 💻 and ☕</p>
         </div>
     </footer>
+
+    <!-- Native Project Modal Dialogs -->
+    <!-- Project 1 Modal -->
+    <dialog id="project-1" class="project-modal glass-panel">
+        <div class="modal-header">
+            <div class="modal-title-container">
+                <span class="project-tag">AWS / IAC</span>
+                <h3>Multi-Region Kubernetes via Terraform</h3>
+            </div>
+            <button class="modal-close" onclick="this.closest('dialog').close()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image-diagram">
+                <!-- SVG Diagram representing AWS architecture -->
+                <svg viewBox="0 0 600 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="modal-diagram-svg">
+                    <rect width="100%" height="100%" rx="8" fill="rgba(0,0,0,0.2)"></rect>
+
+                    <!-- Region AWS 1 -->
+                    <rect x="20" y="40" width="250" height="170" rx="6" stroke="oklch(0.75 0.18 200)" stroke-width="1.5"
+                        stroke-dasharray="4 4" fill="none"></rect>
+                    <text x="30" y="30" fill="oklch(0.75 0.18 200)" font-size="12" font-family="monospace">AWS Region
+                        us-east-1 (Primary)</text>
+                    <rect x="40" y="60" width="90" height="40" rx="4" fill="none" stroke="rgba(255,255,255,0.3)"
+                        stroke-width="1.5"></rect>
+                    <text x="85" y="84" fill="white" font-size="10" text-anchor="middle" font-family="sans-serif">Public
+                        VPC</text>
+                    <rect x="40" y="110" width="210" height="80" rx="4" fill="none" stroke="oklch(0.65 0.22 300)"
+                        stroke-width="1.5"></rect>
+                    <text x="145" y="130" fill="oklch(0.65 0.22 300)" font-size="10" text-anchor="middle"
+                        font-family="sans-serif">Private Subnet (EKS Nodes)</text>
+                    <rect x="50" y="145" width="80" height="30" rx="3" fill="rgba(255,255,255,0.05)"
+                        stroke="rgba(255,255,255,0.2)"></rect>
+                    <text x="90" y="163" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">Node
+                        Group A</text>
+                    <rect x="150" y="145" width="80" height="30" rx="3" fill="rgba(255,255,255,0.05)"
+                        stroke="rgba(255,255,255,0.2)"></rect>
+                    <text x="190" y="163" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">Node
+                        Group B</text>
+
+                    <!-- Global Route53 Router -->
+                    <rect x="285" y="55" width="30" height="30" rx="15" fill="oklch(0.78 0.17 140)"></rect>
+                    <text x="300" y="73" fill="black" font-size="10" text-anchor="middle" font-weight="bold"
+                        font-family="sans-serif">R53</text>
+                    <path d="M 300,85 L 140,40 M 300,85 L 460,40" stroke="rgba(255,255,255,0.4)" stroke-dasharray="2 2">
+                    </path>
+
+                    <!-- Region AWS 2 -->
+                    <rect x="330" y="40" width="250" height="170" rx="6" stroke="oklch(0.75 0.18 200)"
+                        stroke-width="1.5" stroke-dasharray="4 4" fill="none" opacity="0.6"></rect>
+                    <text x="340" y="30" fill="oklch(0.75 0.18 200)" font-size="12" font-family="monospace"
+                        opacity="0.6">AWS Region eu-west-1 (Secondary)</text>
+                    <rect x="350" y="60" width="90" height="40" rx="4" fill="none" stroke="rgba(255,255,255,0.2)"
+                        stroke-width="1.5" opacity="0.6"></rect>
+                    <text x="395" y="84" fill="white" font-size="10" text-anchor="middle" font-family="sans-serif"
+                        opacity="0.6">Public VPC</text>
+                    <rect x="350" y="110" width="210" height="80" rx="4" fill="none" stroke="oklch(0.65 0.22 300)"
+                        stroke-width="1.5" opacity="0.6"></rect>
+                    <text x="455" y="130" fill="oklch(0.65 0.22 300)" font-size="10" text-anchor="middle"
+                        font-family="sans-serif" opacity="0.6">Private Subnet (EKS Nodes)</text>
+                    <rect x="360" y="145" width="80" height="30" rx="3" fill="none" stroke="rgba(255,255,255,0.15)">
+                    </rect>
+                    <text x="400" y="163" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif"
+                        opacity="0.6">Node Group A</text>
+                    <rect x="460" y="145" width="80" height="30" rx="3" fill="none" stroke="rgba(255,255,255,0.15)">
+                    </rect>
+                    <text x="500" y="163" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif"
+                        opacity="0.6">Node Group B</text>
+                </svg>
+            </div>
+
+            <div class="modal-info">
+                <h4>Architecture Summary</h4>
+                <p>This project leverages Terraform to build an active-passive multi-region Kubernetes topology across
+                    AWS `us-east-1` and `eu-west-1`. Core components include Route53 latency-based routing, AWS EKS node
+                    groups running in isolated private subnets, custom AWS VPC peering configurations, and Karpenter for
+                    dynamic pod autoscaling.</p>
+
+                <h4>Key Achievements</h4>
+                <ul>
+                    <li>Reduced multi-region deploy configuration time from hours to 8 minutes using unified Terraform
+                        modules.</li>
+                    <li>Designed Karpenter sizing matrices, saving 35% in AWS compute costs compared to managed ASGs.
+                    </li>
+                    <li>Integrated externalDNS and cert-manager to automatically register DNS records and TLS certs on
+                        ingress creation.</li>
+                </ul>
+
+                <h4>Technology Stack</h4>
+                <div class="tech-tags">
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">AWS EKS</span>
+                    <span class="tech-tag">Karpenter</span>
+                    <span class="tech-tag">Route 53</span>
+                    <span class="tech-tag">VPC Peering</span>
+                    <span class="tech-tag">ArgoCD</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Project 2 Modal -->
+    <dialog id="project-2" class="project-modal glass-panel">
+        <div class="modal-header">
+            <div class="modal-title-container">
+                <span class="project-tag">GITOPS / CI-CD</span>
+                <h3>GitOps Continuous Delivery Engine</h3>
+            </div>
+            <button class="modal-close" onclick="this.closest('dialog').close()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image-diagram">
+                <svg viewBox="0 0 600 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="modal-diagram-svg">
+                    <rect width="100%" height="100%" rx="8" fill="rgba(0,0,0,0.2)"></rect>
+
+                    <!-- Dev Commit -->
+                    <circle cx="50" cy="120" r="18" fill="none" stroke="oklch(0.75 0.18 200)" stroke-width="1.5">
+                    </circle>
+                    <text x="50" y="123" fill="oklch(0.75 0.18 200)" font-size="10" font-family="monospace"
+                        text-anchor="middle">Dev</text>
+                    <path d="M 68,120 L 122,120" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"
+                        marker-end="url(#arrow)"></path>
+
+                    <!-- GitHub Actions (Lint, Test, Build, Push) -->
+                    <rect x="130" y="80" width="100" height="80" rx="4" stroke="oklch(0.65 0.22 300)" stroke-width="1.5"
+                        fill="none"></rect>
+                    <text x="180" y="105" fill="oklch(0.65 0.22 300)" font-size="11" font-weight="bold"
+                        text-anchor="middle" font-family="sans-serif">GitHub Actions</text>
+                    <text x="180" y="125" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">Trivy
+                        Scan</text>
+                    <text x="180" y="140" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">Docker Push</text>
+
+                    <path d="M 230,120 L 280,120" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"></path>
+
+                    <!-- Container Registry & Git Repo -->
+                    <rect x="290" y="50" width="80" height="50" rx="4" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"
+                        fill="none"></rect>
+                    <text x="330" y="75" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">Docker
+                        Registry</text>
+                    <rect x="290" y="130" width="80" height="50" rx="4" stroke="rgba(255,255,255,0.2)"
+                        stroke-width="1.5" fill="none"></rect>
+                    <text x="330" y="155" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">Manifest Repo</text>
+
+                    <!-- ArgoCD Engine -->
+                    <rect x="410" y="80" width="80" height="80" rx="40" stroke="oklch(0.78 0.17 140)" stroke-width="1.5"
+                        fill="none"></rect>
+                    <text x="450" y="123" fill="oklch(0.78 0.17 140)" font-size="11" text-anchor="middle"
+                        font-weight="bold" font-family="sans-serif">ArgoCD</text>
+
+                    <path d="M 370,75 L 430,95" stroke="rgba(255,255,255,0.2)"></path>
+                    <path d="M 370,155 L 430,145" stroke="rgba(255,255,255,0.2)"></path>
+
+                    <!-- K8s Cluster -->
+                    <rect x="520" y="80" width="60" height="80" rx="4" stroke="oklch(0.75 0.18 200)" stroke-width="1.5"
+                        fill="none"></rect>
+                    <text x="550" y="115" fill="oklch(0.75 0.18 200)" font-size="10" text-anchor="middle"
+                        font-family="sans-serif">Target</text>
+                    <text x="550" y="135" fill="oklch(0.75 0.18 200)" font-size="10" text-anchor="middle"
+                        font-family="sans-serif">K8s</text>
+
+                    <path d="M 490,120 L 520,120" stroke="oklch(0.78 0.17 140)" stroke-width="1.5"></path>
+                </svg>
+            </div>
+
+            <div class="modal-info">
+                <h4>Architecture Summary</h4>
+                <p>This project implements GitOps continuous delivery workflows. When developers push code, GitHub
+                    Actions validates files, executes unit tests, builds security-hardened Docker images, runs Trivy
+                    vulnerability scanning, and publishes to a private registry. ArgoCD monitors a separate Git config
+                    repository and synchronizes state to the production Kubernetes cluster, maintaining zero-drift
+                    environments.</p>
+
+                <h4>Key Achievements</h4>
+                <ul>
+                    <li>Created a zero-trust build setup: container secrets are loaded dynamically via AWS IAM Roles for
+                        Service Accounts (IRSA) rather than static long-lived credentials.</li>
+                    <li>Configured webhooks to ensure ArgoCD triggers synchronization within 3 seconds of a
+                        configuration manifest commit.</li>
+                    <li>Developed automated rollback controls that revert deployments automatically if container health
+                        probes fail on startup.</li>
+                </ul>
+
+                <h4>Technology Stack</h4>
+                <div class="tech-tags">
+                    <span class="tech-tag">ArgoCD</span>
+                    <span class="tech-tag">GitHub Actions</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Trivy</span>
+                    <span class="tech-tag">Sealed Secrets</span>
+                    <span class="tech-tag">Kubernetes</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Project 3 Modal -->
+    <dialog id="project-3" class="project-modal glass-panel">
+        <div class="modal-header">
+            <div class="modal-title-container">
+                <span class="project-tag">SRE / OBSERVE</span>
+                <h3>Prometheus Service Level Monitoring</h3>
+            </div>
+            <button class="modal-close" onclick="this.closest('dialog').close()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image-diagram">
+                <svg viewBox="0 0 600 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="modal-diagram-svg">
+                    <rect width="100%" height="100%" rx="8" fill="rgba(0,0,0,0.2)"></rect>
+
+                    <!-- K8s Nodes exporting metrics -->
+                    <rect x="30" y="40" width="140" height="160" rx="4" stroke="rgba(255,255,255,0.2)" fill="none">
+                    </rect>
+                    <text x="100" y="60" fill="white" font-size="11" text-anchor="middle" font-family="sans-serif">K8s
+                        Cluster Targets</text>
+                    <rect x="50" y="80" width="100" height="30" rx="3" fill="rgba(255,255,255,0.05)"
+                        stroke="rgba(255,255,255,0.15)"></rect>
+                    <text x="100" y="98" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">kube-state-metrics</text>
+                    <rect x="50" y="120" width="100" height="30" rx="3" fill="rgba(255,255,255,0.05)"
+                        stroke="rgba(255,255,255,0.15)"></rect>
+                    <text x="100" y="138" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">node-exporter</text>
+                    <rect x="50" y="160" width="100" height="30" rx="3" fill="rgba(255,255,255,0.05)"
+                        stroke="rgba(255,255,255,0.15)"></rect>
+                    <text x="100" y="178" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">App
+                        Pods (/metrics)</text>
+
+                    <!-- Scraping route -->
+                    <path d="M 170,120 L 250,120" stroke="oklch(0.75 0.18 200)" stroke-width="1.5"
+                        stroke-dasharray="3 3"></path>
+
+                    <!-- Prometheus Operator -->
+                    <rect x="260" y="70" width="110" height="100" rx="6" stroke="oklch(0.75 0.18 200)"
+                        stroke-width="1.5" fill="none"></rect>
+                    <text x="315" y="95" fill="oklch(0.75 0.18 200)" font-size="12" font-weight="bold"
+                        text-anchor="middle" font-family="sans-serif">Prometheus</text>
+                    <text x="315" y="120" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">TSDB
+                        Engine</text>
+                    <text x="315" y="140" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">Alertmanager</text>
+
+                    <path d="M 370,100 L 440,70" stroke="rgba(255,255,255,0.3)"></path>
+                    <path d="M 370,140 L 440,170" stroke="rgba(255,255,255,0.3)"></path>
+
+                    <!-- Grafana Dashboard -->
+                    <rect x="450" y="40" width="110" height="60" rx="4" stroke="oklch(0.65 0.22 300)" stroke-width="1.5"
+                        fill="none"></rect>
+                    <text x="505" y="75" fill="oklch(0.65 0.22 300)" font-size="11" font-weight="bold"
+                        text-anchor="middle" font-family="sans-serif">Grafana UI</text>
+
+                    <!-- Alerting Destinations -->
+                    <rect x="450" y="140" width="110" height="60" rx="4" stroke="oklch(0.78 0.17 140)"
+                        stroke-width="1.5" fill="none"></rect>
+                    <text x="505" y="175" fill="oklch(0.78 0.17 140)" font-size="11" font-weight="bold"
+                        text-anchor="middle" font-family="sans-serif">PagerDuty / Slack</text>
+                </svg>
+            </div>
+
+            <div class="modal-info">
+                <h4>Architecture Summary</h4>
+                <p>Designed a comprehensive enterprise observability platform using Prometheus Operator and Grafana
+                    deployed inside Kubernetes. The stack collects infrastructure metrics (via node-exporter and
+                    kube-state-metrics) along with application custom metrics. The rules engine calculates Service Level
+                    Indicators (SLIs) and alerts operators via Alertmanager when metrics breach Service Level Objectives
+                    (SLOs).</p>
+
+                <h4>Key Achievements</h4>
+                <ul>
+                    <li>Drafted PrometheusRules that dynamically detect memory leaks and network anomalies before they
+                        impact end-users.</li>
+                    <li>Designed unified dashboards presenting core SRE Golden Signals (Latency, Traffic, Errors,
+                        Saturation).</li>
+                    <li>Structured alerting routes to minimize alert fatigue, reducing false alerts by 60% using
+                        Prometheus grouping filters.</li>
+                </ul>
+
+                <h4>Technology Stack</h4>
+                <div class="tech-tags">
+                    <span class="tech-tag">Prometheus</span>
+                    <span class="tech-tag">Grafana</span>
+                    <span class="tech-tag">Alertmanager</span>
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">PromQL</span>
+                    <span class="tech-tag">PagerDuty</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Project 4 Modal -->
+    <dialog id="project-4" class="project-modal glass-panel">
+        <div class="modal-header">
+            <div class="modal-title-container">
+                <span class="project-tag">K8S / SECURITY</span>
+                <h3>Kubernetes Cluster Security Hardening</h3>
+            </div>
+            <button class="modal-close" onclick="this.closest('dialog').close()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image-diagram">
+                <svg viewBox="0 0 600 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="modal-diagram-svg">
+                    <rect width="100%" height="100%" rx="8" fill="rgba(0,0,0,0.2)"></rect>
+
+                    <!-- Ingress Filter -->
+                    <rect x="20" y="50" width="100" height="140" rx="4" stroke="oklch(0.65 0.22 300)" stroke-width="1.5"
+                        fill="none"></rect>
+                    <text x="70" y="110" fill="oklch(0.65 0.22 300)" font-size="11" font-weight="bold"
+                        text-anchor="middle" font-family="sans-serif">NetworkPolicies</text>
+                    <text x="70" y="130" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">Namespace Isolation</text>
+
+                    <!-- API Gate -->
+                    <rect x="150" y="50" width="130" height="140" rx="4" stroke="oklch(0.75 0.18 200)"
+                        stroke-width="1.5" fill="none"></rect>
+                    <text x="215" y="100" fill="oklch(0.75 0.18 200)" font-size="11" font-weight="bold"
+                        text-anchor="middle" font-family="sans-serif">Admission Controls</text>
+                    <text x="215" y="125" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">Kyverno Policies</text>
+                    <text x="215" y="145" fill="white" font-size="9" text-anchor="middle"
+                        font-family="sans-serif">No-Root Verification</text>
+
+                    <!-- Run Pod -->
+                    <rect x="310" y="50" width="120" height="140" rx="4" stroke="oklch(0.78 0.17 140)"
+                        stroke-width="1.5" fill="none"></rect>
+                    <text x="370" y="100" fill="oklch(0.78 0.17 140)" font-size="11" font-weight="bold"
+                        text-anchor="middle" font-family="sans-serif">Runtime Auditing</text>
+                    <text x="370" y="125" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">Falco
+                        DaemonSet</text>
+                    <text x="370" y="145" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">eBPF
+                        Monitoring</text>
+
+                    <!-- Central SIEM -->
+                    <rect x="460" y="80" width="110" height="80" rx="6" stroke="rgba(255,255,255,0.3)"
+                        stroke-width="1.5" fill="none"></rect>
+                    <text x="515" y="115" fill="white" font-size="11" font-weight="bold" text-anchor="middle"
+                        font-family="sans-serif">Central Security</text>
+                    <text x="515" y="135" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif">SIEM
+                        Dashboard</text>
+
+                    <!-- Lines -->
+                    <path d="M 120,120 L 150,120" stroke="rgba(255,255,255,0.3)"></path>
+                    <path d="M 280,120 L 310,120" stroke="rgba(255,255,255,0.3)"></path>
+                    <path d="M 430,120 L 460,120" stroke="rgba(255,255,255,0.3)"></path>
+                </svg>
+            </div>
+
+            <div class="modal-info">
+                <h4>Architecture Summary</h4>
+                <p>Designed and configured end-to-end security profiles for a production-grade Kubernetes cluster.
+                    Applied security layers include: strict network namespace isolation policies, Admission Controllers
+                    (Kyverno) to reject containers seeking root privileges or running with insecure capabilities, and
+                    Falco runtime agent daemons monitoring eBPF calls to detect shell escapes or unauthorized filesystem
+                    access in real-time.</p>
+
+                <h4>Key Achievements</h4>
+                <ul>
+                    <li>Enforced CIS Kubernetes Benchmarks across control planes and nodes, increasing compliance
+                        ratings to 96%.</li>
+                    <li>Constructed Kyverno rules to automatically inject read-only root filesystems and drop default
+                        capabilities on application pods.</li>
+                    <li>Wrote Falco rules that notify security channels on Slack immediately if a shell process spawns
+                        inside a database pod.</li>
+                </ul>
+
+                <h4>Technology Stack</h4>
+                <div class="tech-tags">
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">Kyverno</span>
+                    <span class="tech-tag">Falco (eBPF)</span>
+                    <span class="tech-tag">NetworkPolicies</span>
+                    <span class="tech-tag">Kube-bench</span>
+                    <span class="tech-tag">Secrets Hardening</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="app.js"></script>
 </body>
+
 </html>
