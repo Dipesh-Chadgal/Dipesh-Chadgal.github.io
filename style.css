@@ -3,12 +3,16 @@
    ========================================================================== */
 :root {
     /* Color Palette - OKLCH (vibrant, modern color model) */
-    --bg-main: oklch(0.12 0.015 240);       /* Deep Slate Blue-Black */
-    --bg-card: oklch(0.16 0.02 240 / 0.6);   /* Semi-transparent dark gray-blue */
+    --bg-main: oklch(0.12 0.015 240);
+    /* Deep Slate Blue-Black */
+    --bg-card: oklch(0.16 0.02 240 / 0.6);
+    /* Semi-transparent dark gray-blue */
     --bg-header: oklch(0.12 0.015 240 / 0.7);
-    --border-color: oklch(1 0 0 / 0.08);     /* Subtle white border */
-    --border-glow: oklch(0.75 0.18 200 / 0.15); /* Subtle cyan border glow */
-    
+    --border-color: oklch(1 0 0 / 0.08);
+    /* Subtle white border */
+    --border-glow: oklch(0.75 0.18 200 / 0.15);
+    /* Subtle cyan border glow */
+
     /* Glowing Neons */
     --neon-cyan: oklch(0.75 0.18 200);
     --neon-cyan-glow: oklch(0.75 0.18 200 / 0.35);
@@ -18,13 +22,16 @@
     --neon-green-glow: oklch(0.78 0.17 140 / 0.35);
     --neon-red: oklch(0.65 0.22 20);
     --neon-red-glow: oklch(0.65 0.22 20 / 0.35);
-    
+
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
     --font-mono: 'Fira Code', monospace;
-    --text-primary: oklch(0.95 0.005 240);    /* Soft white */
-    --text-secondary: oklch(0.75 0.01 240);   /* Muted gray-blue */
-    --text-muted: oklch(0.55 0.01 240);        /* Darker gray-blue */
+    --text-primary: oklch(0.95 0.005 240);
+    /* Soft white */
+    --text-secondary: oklch(0.75 0.01 240);
+    /* Muted gray-blue */
+    --text-muted: oklch(0.55 0.01 240);
+    /* Darker gray-blue */
 
     /* Layout & Shadows */
     --panel-radius: 12px;
@@ -37,7 +44,9 @@
 /* ==========================================================================
    RESET & SYSTEM BASES
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -67,7 +76,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
     background-size: 40px 40px;
@@ -81,10 +90,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        rgba(18, 16, 16, 0) 50%, 
-        rgba(0, 0, 0, 0.25) 50%
-    );
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%);
     background-size: 100% 4px;
     z-index: -1;
     pointer-events: none;
@@ -129,10 +136,21 @@ a {
     color: var(--neon-green);
 }
 
-.color-blue { color: var(--neon-cyan); }
-.color-violet { color: var(--neon-violet); }
-.color-green { color: var(--neon-green); }
-.code-text { font-family: var(--font-mono); }
+.color-blue {
+    color: var(--neon-cyan);
+}
+
+.color-violet {
+    color: var(--neon-violet);
+}
+
+.color-green {
+    color: var(--neon-green);
+}
+
+.code-text {
+    font-family: var(--font-mono);
+}
 
 /* Buttons styling */
 .btn {
@@ -208,9 +226,20 @@ a {
 }
 
 @keyframes pulse-dot {
-    0% { transform: scale(0.9); opacity: 0.6; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(0.9); opacity: 0.6; }
+    0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
 }
 
 /* Dividers */
@@ -275,7 +304,9 @@ a {
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
+    50% {
+        opacity: 0;
+    }
 }
 
 .nav-menu {
@@ -380,9 +411,12 @@ a {
 
 /* Responsive Header */
 @media (max-width: 900px) {
-    .nav-menu, .status-indicator {
+
+    .nav-menu,
+    .status-indicator {
         display: none;
     }
+
     .menu-toggle {
         display: block;
     }
@@ -485,9 +519,17 @@ a {
     display: inline-block;
 }
 
-.terminal-btn.close { background-color: oklch(0.65 0.22 20); }
-.terminal-btn.minimize { background-color: oklch(0.78 0.17 90); }
-.terminal-btn.maximize { background-color: oklch(0.78 0.17 140); }
+.terminal-btn.close {
+    background-color: oklch(0.65 0.22 20);
+}
+
+.terminal-btn.minimize {
+    background-color: oklch(0.78 0.17 90);
+}
+
+.terminal-btn.maximize {
+    background-color: oklch(0.78 0.17 140);
+}
 
 .terminal-title {
     font-family: var(--font-mono);
@@ -546,9 +588,11 @@ a {
         padding-top: 120px;
         gap: 60px;
     }
+
     .hero-title {
         font-size: 2.8rem;
     }
+
     .hero-terminal {
         height: 320px;
     }
@@ -686,9 +730,17 @@ a {
 }
 
 @keyframes spin-pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Connection Lines */
@@ -697,7 +749,8 @@ a {
     height: 4px;
     background-color: var(--border-color);
     margin: 0 -10px;
-    margin-bottom: 36px; /* Align to container vertical middle */
+    margin-bottom: 36px;
+    /* Align to container vertical middle */
     border-radius: 2px;
     position: relative;
     overflow: hidden;
@@ -723,7 +776,9 @@ a {
 }
 
 @keyframes load-connector {
-    to { width: 100%; }
+    to {
+        width: 100%;
+    }
 }
 
 /* Pipeline Logs Console */
@@ -735,7 +790,7 @@ a {
 }
 
 .console-header {
-    background-color: rgba(255,255,255,0.02);
+    background-color: rgba(255, 255, 255, 0.02);
     border-bottom: 1px solid var(--border-color);
     padding: 10px 16px;
     display: flex;
@@ -792,31 +847,46 @@ a {
     line-height: 1.4;
 }
 
-.log-row.info { color: var(--text-muted); }
-.log-row.success { color: var(--neon-green); }
-.log-row.warning { color: oklch(0.78 0.17 90); }
-.log-row.error { color: var(--neon-red); }
+.log-row.info {
+    color: var(--text-muted);
+}
+
+.log-row.success {
+    color: var(--neon-green);
+}
+
+.log-row.warning {
+    color: oklch(0.78 0.17 90);
+}
+
+.log-row.error {
+    color: var(--neon-red);
+}
 
 @media (max-width: 768px) {
     .pipeline-stages {
         flex-direction: column;
         gap: 20px;
     }
+
     .pipeline-connector {
         display: none;
     }
+
     .pipeline-stage {
         flex-direction: row;
         width: 100%;
         padding: 10px;
-        background: rgba(255,255,255,0.02);
+        background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--border-color);
         border-radius: 6px;
     }
+
     .stage-icon {
         width: 44px;
         height: 44px;
     }
+
     .stage-info {
         text-align: left;
     }
@@ -927,7 +997,9 @@ a {
 }
 
 @keyframes data-flow {
-    to { stroke-dashoffset: -400px; }
+    to {
+        stroke-dashoffset: -400px;
+    }
 }
 
 /* Map Nodes Interaction styling */
@@ -967,6 +1039,7 @@ a {
     .architecture-layout {
         grid-template-columns: 1fr;
     }
+
     .arch-details {
         order: 2;
     }
@@ -1015,7 +1088,8 @@ a {
 }
 
 /* Panels */
-.cpu-telemetry, .traffic-telemetry {
+.cpu-telemetry,
+.traffic-telemetry {
     grid-column: span 1;
     padding: 20px;
     display: flex;
@@ -1094,14 +1168,19 @@ a {
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
+
     .summary-stats {
         grid-column: span 1;
         grid-template-columns: repeat(2, 1fr);
     }
+
     .stat-box:nth-child(2) {
         border-right: none;
     }
-    .cpu-telemetry, .traffic-telemetry, .memory-telemetry {
+
+    .cpu-telemetry,
+    .traffic-telemetry,
+    .memory-telemetry {
         grid-column: span 1;
     }
 }
@@ -1486,13 +1565,13 @@ a {
     padding: 0;
     overflow-y: auto;
     scrollbar-width: thin;
-    
+
     /* Dialog entry / exit discrete property transitions */
     opacity: 0;
     transform: scale(0.95);
-    transition: 
-        opacity 0.3s ease, 
-        transform 0.3s var(--transition-bounce), 
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s var(--transition-bounce),
         display 0.3s allow-discrete;
 }
 

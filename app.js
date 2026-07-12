@@ -77,13 +77,13 @@ function initTerminal() {
     hiddenInput.setAttribute('autocapitalize', 'off');
     hiddenInput.setAttribute('spellcheck', 'false');
 
-    hiddenInput.style.position = 'absolute';
+    hiddenInput.style.position = 'fixed';
     hiddenInput.style.opacity = '0.01';
     hiddenInput.style.pointerEvents = 'none';
     hiddenInput.style.left = '0';
     hiddenInput.style.top = '0';
-    hiddenInput.style.width = '100%';
-    hiddenInput.style.height = '100%';
+    hiddenInput.style.width = '0px';
+    hiddenInput.style.height = '0px';
     hiddenInput.style.border = 'none';
     hiddenInput.style.outline = 'none';
     hiddenInput.style.background = 'transparent';
@@ -103,14 +103,14 @@ function initTerminal() {
         typeCommand("systemctl status dipesh-chadgal-portfolio.service", () => {
             executeCommand("systemctl");
             autoTypingActive = false;
-            hiddenInput.focus();
+            hiddenInput.focus({ preventScroll: true });
         });
     }, 1500);
 
     // Focus hidden input on terminal click
     terminalCard.addEventListener('click', () => {
         if (!autoTypingActive) {
-            hiddenInput.focus();
+            hiddenInput.focus({ preventScroll: true });
         }
     });
 
@@ -138,7 +138,7 @@ function initTerminal() {
 
         // Focus and let hiddenInput process the key
         if (document.activeElement !== hiddenInput) {
-            hiddenInput.focus();
+            hiddenInput.focus({ preventScroll: true });
         }
     });
 
