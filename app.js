@@ -80,14 +80,15 @@ function initTerminal() {
     hiddenInput.style.position = 'fixed';
     hiddenInput.style.opacity = '0.01';
     hiddenInput.style.pointerEvents = 'none';
-    hiddenInput.style.left = '0';
+    hiddenInput.style.left = '-9999px'; // Move off-screen
     hiddenInput.style.top = '0';
-    hiddenInput.style.width = '0px';
-    hiddenInput.style.height = '0px';
+    hiddenInput.style.width = '100px';  // Non-zero width prevents mobile browsers from collapsing caret calculation
+    hiddenInput.style.height = '30px';  // Non-zero height
     hiddenInput.style.border = 'none';
     hiddenInput.style.outline = 'none';
     hiddenInput.style.background = 'transparent';
     hiddenInput.style.caretColor = 'transparent';
+    hiddenInput.style.direction = 'ltr'; // Ensure Left-to-Right directionality
     hiddenInput.style.fontSize = '16px'; // Prevent page zoom on iOS
     terminalOutput.appendChild(hiddenInput);
 
