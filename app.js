@@ -740,6 +740,9 @@ function initModals() {
 /* ==========================================================================
    6. CONTACT CLI TRANSMISSION FORM
    ========================================================================== */
+// Web3Forms Configuration: Get your free access key at https://web3forms.com
+const WEB3FORMS_ACCESS_KEY = "2ecaf124-be56-4a87-86f7-4e350382728f";
+
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const responseEl = document.getElementById('contact-response');
@@ -759,13 +762,64 @@ function initContactForm() {
         responseEl.style.display = 'block';
         responseEl.innerHTML = 'Connecting to dispatch socket...';
 
+        // Check if user has updated the key
+        if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "YOUR_ACCESS_KEY_HERE") {
+            const warningSteps = [
+                'SSH connection established. Authenticating keys...',
+                '[WARNING] WEB3FORMS_ACCESS_KEY is not configured!',
+                '   -> Please obtain a free key at https://web3forms.com',
+                '   -> Update the WEB3FORMS_ACCESS_KEY constant in app.js',
+                '[ERROR] Message transmission aborted.'
+            ];
+
+            for (let i = 0; i < warningSteps.length; i++) {
+                await new Promise(r => setTimeout(r, 600));
+                responseEl.innerHTML += `<br>   -> ${warningSteps[i]}`;
+            }
+
+            responseEl.className = 'form-response error';
+            btnSubmit.disabled = false;
+            btnSubmit.classList.remove('disabled');
+            return;
+        }
+
+        // Trigger fetch request to Web3Forms in parallel
+        let apiSuccess = false;
+        let apiErrorMsg = "";
+        const submissionPromise = (async () => {
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        access_key: WEB3FORMS_ACCESS_KEY,
+                        name: name,
+                        email: email,
+                        message: msg,
+                        subject: `New Portfolio Message from ${name}`
+                    })
+                });
+                const result = await response.json();
+                if (response.ok && result.success) {
+                    apiSuccess = true;
+                } else {
+                    apiErrorMsg = result.message || "Invalid API response status.";
+                }
+            } catch (err) {
+                apiErrorMsg = err.message || "Network request failed.";
+            }
+        })();
+
         // Step by step mock dispatch logs
         const steps = [
             'SSH connection established. Authenticating keys...',
             'Host keys verified. Creating transmission packets...',
             'Transmitting form buffers: (Name: ' + name + ', Email: ' + email + ')',
             'Sending payload payload.bin to secure webhook...',
-            'Notification dispatched successfully! SRE pager alerted. 📟'
+            'Awaiting server transmission feedback...'
         ];
 
         for (let i = 0; i < steps.length; i++) {
@@ -773,19 +827,25 @@ function initContactForm() {
             responseEl.innerHTML += `<br>   -> ${steps[i]}`;
         }
 
-        await new Promise(r => setTimeout(r, 400));
-        responseEl.className = 'form-response success';
-        responseEl.innerHTML = `[SUCCESS] Secure packet delivered. Shell connection closed successfully.<br>Message dispatched to Dipesh's SRE notification queue!`;
+        // Await the API response
+        await submissionPromise;
 
-        // Reset
-        form.reset();
+        if (apiSuccess) {
+            responseEl.className = 'form-response success';
+            responseEl.innerHTML = `[SUCCESS] Secure packet delivered. Shell connection closed successfully.<br>Message dispatched to Dipesh's SRE notification queue!`;
+            form.reset();
+        } else {
+            responseEl.className = 'form-response error';
+            responseEl.innerHTML = `[ERROR] Secure packet delivery failed.<br>Details: ${apiErrorMsg}<br>Please check your connection and configuration.`;
+        }
+
         btnSubmit.disabled = false;
         btnSubmit.classList.remove('disabled');
 
-        // Hide success message after 10s
+        // Hide success message after 15s
         setTimeout(() => {
             responseEl.style.display = 'none';
             responseEl.innerHTML = '';
-        }, 10000);
+        }, 15000);
     });
 }
